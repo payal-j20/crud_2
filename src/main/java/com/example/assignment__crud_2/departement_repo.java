@@ -15,7 +15,7 @@ import org.springframework.data.repository.query.Param;
  * @author Payal
  */
 public interface departement_repo extends CrudRepository<department,Integer> {
-    @Query("from department where name=:name")
-    List<employee> getdepartmentName(@Param("name") String name);
+    @Query("from department where d_name=:d_name")
+    List<department> getdepartmentName(@Param("d_name") String d_name);
     
 }

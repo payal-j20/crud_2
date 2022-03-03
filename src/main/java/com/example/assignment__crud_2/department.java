@@ -5,11 +5,14 @@
  */
 package com.example.assignment__crud_2;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -24,19 +27,33 @@ public class department {
     @Column
     int d_id;
     @Column
-    String name;
-    
-    public String getName() {
-        return name;
+    String d_name;
+    @OneToMany(mappedBy = "d_id")
+    List <employee> e;
+
+    public List<employee> getE() {
+        return e;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setE(List<employee> e) {
+        this.e = e;
     }
+
+    
+    
+    public String getD_name() {
+        return d_name;
+    }
+
+    public void setD_name(String d_name) {
+        this.d_name = d_name;
+    }
+    
+    
 
     @Override
     public String toString() {
-        return "department{" + "d_id=" + d_id + ", name=" + name + '}';
+        return "department{" + "d_id=" + d_id + ", d_name=" + d_name + '}';
     }
     
 }

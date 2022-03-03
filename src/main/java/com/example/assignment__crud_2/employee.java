@@ -5,11 +5,16 @@
  */
 package com.example.assignment__crud_2;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -23,8 +28,10 @@ public class employee {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column
     int e_id;
-    @Column
-    int d_id;
+    
+    @ManyToOne
+    @JoinColumn(name = "d_id")
+    department d_id;
     @Column
     String f_name;
     @Column
@@ -32,13 +39,15 @@ public class employee {
     @Column
     int salary;
 
-    public int getD_id() {
+    public department getD_id() {
         return d_id;
     }
 
-    public void setId(int d_id) {
+    public void setD_id(department d_id) {
         this.d_id = d_id;
     }
+
+    
 
     public String getF_name() {
         return f_name;
@@ -66,7 +75,7 @@ public class employee {
 
     @Override
     public String toString() {
-        return "employee{" + "e_id=" + e_id + ", d_id=" + d_id + ", f_name=" + f_name + ", l_name=" + l_name + ", salary=" + salary + '}';
+        return "employee{" + "e_id=" + e_id + ", d_name=" + d_id + ", f_name=" + f_name + ", l_name=" + l_name + ", salary=" + salary + '}';
     }
     
 }

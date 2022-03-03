@@ -21,6 +21,17 @@
         <button onClick="emp_id()">GEt employee by id</button><br>
         <button onClick="emp_name()">GEt employee by name</button><br>
         <button onClick="emp_id_name()">GEt employee by id and name</button><br>
+        <button onClick="gettemployesal()">Get employee with the salary></button><br>
+        
+        <button onClick="gettemployee_with_did()">Get employee working in particular department by id</button><br>
+        
+        <button onClick="read_pr_sal()">Get professor details by salary</button><br>
+        <br>
+        <a href="read_pr_name">get all proffesors name details</a><br>
+        <a href="read_pr_sub">get all proffesor's subjects details</a><br>
+        
+        
+        
          <div id="demo"></div> <div id="demo"></div>
          <script>
         
@@ -38,7 +49,7 @@
                 var un = document.createElement("input");
                 un.setAttribute("type", "text");
                 un.setAttribute("name", "d_id");
-                un.setAttribute("placeholder", "d_id");
+                un.setAttribute("placeholder", "departement id");
                 form.appendChild(un);
                 form.appendChild(br.cloneNode());
                 
@@ -174,13 +185,13 @@
                 form.setAttribute("method", "get");
                 form.setAttribute("action", "read_em_id");
                 var label=document.createElement("Label");
-                label.innerHTML="GEt By name : ";
+                label.innerHTML="Get By name : ";
                 form.appendChild(label);
                 form.appendChild(br.cloneNode());
                 
                 var un2=document.createElement("input");
                 un2.setAttribute("type", "text");
-                un2.setAttribute("name", "id");
+                un2.setAttribute("name", "name");
                 un2.setAttribute("placeholder", "name");
                 form.appendChild(un2);
                 form.appendChild(br.cloneNode());
@@ -207,7 +218,7 @@
                 var un=document.createElement("input");
                 un.setAttribute("type", "text");
                 un.setAttribute("name", "id");
-                un.setAttribute("placeholder", "name");
+                un.setAttribute("placeholder", "id");
                 form.appendChild(un);
                 form.appendChild(br.cloneNode());
                 
@@ -226,6 +237,61 @@
                 //document.getElementsByTagName("body")[0].appendChild(form);
 				//document.getElementById('demo').removeChild(form);
             }
+            function read_pr_sal() {
+                document.getElementById('demo').innerHTML="";
+                var br = document.createElement("br");
+                var form = document.createElement("form");
+                form.setAttribute("method", "get");
+                form.setAttribute("action", "read_pr_sal");
+                var label=document.createElement("Label");
+                label.innerHTML="Get professor By salary : ";
+                form.appendChild(label);
+                form.appendChild(br.cloneNode());
+                
+                var un2=document.createElement("input");
+                un2.setAttribute("type", "text");
+                un2.setAttribute("name", "sal");
+                un2.setAttribute("placeholder", "salary");
+                form.appendChild(un2);
+                form.appendChild(br.cloneNode());
+                
+                var s = document.createElement("input");
+                s.setAttribute("type", "submit");
+                s.setAttribute("value", "Submit");
+                form.appendChild(s);
+                document.getElementById("demo").appendChild(form);
+                //document.getElementsByTagName("body")[0].appendChild(form);
+				//document.getElementById('demo').removeChild(form);
+            }
+            
+            function gettemployesal() {
+                document.getElementById('demo').innerHTML="";
+                var br = document.createElement("br");
+                var form = document.createElement("form");
+                form.setAttribute("method", "get");
+                form.setAttribute("action", "read_em_sal");
+                var label=document.createElement("Label");
+                label.innerHTML="Get By salary : ";
+                form.appendChild(label);
+                form.appendChild(br.cloneNode());
+                
+                var un2=document.createElement("input");
+                un2.setAttribute("type", "text");
+                un2.setAttribute("name", "sal");
+                un2.setAttribute("placeholder", "salary");
+                form.appendChild(un2);
+                form.appendChild(br.cloneNode());
+                
+                var s = document.createElement("input");
+                s.setAttribute("type", "submit");
+                s.setAttribute("value", "Submit");
+                form.appendChild(s);
+                document.getElementById("demo").appendChild(form);
+                //document.getElementsByTagName("body")[0].appendChild(form);
+				//document.getElementById('demo').removeChild(form);
+            }
+            
+            
             
             </script>
     </body>

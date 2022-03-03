@@ -38,8 +38,9 @@ public class rest_controller {
     }
     @RequestMapping(value="/ad_dp",method=POST)
     public String ad_dp(String name){
+        System.out.println(name);
         department d=new department();
-        d.setName(name);
+        d.setD_name(name);
         d1.save(d);
         return "added department id is :"+d.d_id;
     }
@@ -74,6 +75,7 @@ public class rest_controller {
      }
      @RequestMapping(value="/read_em_id",method=GET)
      public String read_em_id(int id){
+         System.out.println(id);
          List<employee> a=new ArrayList();
         Iterator ob=e1.getemployeeid(id).iterator();
         while(ob.hasNext()){
@@ -83,6 +85,7 @@ public class rest_controller {
      }
      @RequestMapping(value="/read_em_name",method=GET)
      public String read_em_nam(String name){
+         System.out.println(name);
          List<employee> a=new ArrayList();
         Iterator ob=e1.gettemployeeName(name).iterator();
         while(ob.hasNext()){
@@ -92,6 +95,7 @@ public class rest_controller {
      }
      @RequestMapping(value="/read_em_name_id",method=GET)
      public String read_id_nam(String name,int id){
+         System.out.println(name+": "+id);
          List<employee> a=new ArrayList();
         Iterator ob=e1.gettemployeeid_Name(name,id).iterator();
         while(ob.hasNext()){
@@ -99,27 +103,38 @@ public class rest_controller {
         }
          return a.toString();
      }
-     @RequestMapping(value="/read_dp_name",method=GET)
-     public String dep_nam(String name){
-         List<department> a=new ArrayList();
-        Iterator ob=d1.getdepartmentName(name).iterator();
-        while(ob.hasNext()){
-            a.add((department)ob.next());
-        }
-         return a.toString();
-     }
-     @RequestMapping(value="/read_dp_name",method=GET)
-     public String pr_nam(String name){
-         List<proffessor> a=new ArrayList();
-        Iterator ob=d1.getdepartmentName(name).iterator();
+     
+     @RequestMapping(value="/read_pr_name",method=GET)
+     public String pr_nam(){
+         List<String> a=p1.getALlproffesor();
+        /*Iterator ob=p1.getALlproffesor().iterator();
         while(ob.hasNext()){
             a.add((proffessor)ob.next());
-        }
+        }*/
          return a.toString();
      }
-     
-     
-     
+     @RequestMapping(value="/read_pr_sub",method=GET)
+     public String pr_sub(){
+         List<String> a=p1.getALlsubject();
+         return a.toString();
+     }
+      @RequestMapping(value="/read_pr_sal",method=GET)
+     public String pr_sal(int sal){
+         System.out.println(sal);
+         List<String> a=p1.getALlsalary(sal);
+         return a.toString();
+     }   
+     @RequestMapping(value="/read_em_sal",method=GET)
+     public String gettemployesal(int sal){
+         System.out.println(sal);
+         List<employee> a=new ArrayList();
+        Iterator ob=e1.gettemployesal(sal).iterator();
+        while(ob.hasNext()){
+            a.add((employee)ob.next());
+        }
+         return a.toString();
+     }   
+       
      
      
      

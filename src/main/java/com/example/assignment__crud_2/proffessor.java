@@ -25,18 +25,18 @@ public class proffessor {
     @Column
     private int id;
     @Column
-    int d_id;
-    @Column
     String name;
     @Column
     String subject;
+    @Column
+    int salary;
 
-    public int getD_id() {
-        return d_id;
+    public int getSalary() {
+        return salary;
     }
 
-    public void setD_id(int d_id) {
-        this.d_id = d_id;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
     public String getName() {
@@ -65,7 +65,9 @@ public class proffessor {
 
     @Override
     public String toString() {
-        return "proffessor{" + "id=" + id + ", d_id=" + d_id + ", name=" + name + ", subject=" + subject + '}';
+        return "proffessor{" + "id=" + id + ", name=" + name + ", subject=" + subject + ", salary=" + salary + '}';
     }
+
+    
     
 }
